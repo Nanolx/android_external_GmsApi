@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2019 microG Project Team
+ * Copyright (C) 2019 microG Project Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,11 +14,9 @@
  * limitations under the License.
  */
 
-package org.microg.gms.common;
+package org.microg.gms.kotlin
 
-public class Constants {
-    public static final int MAX_REFERENCE_VERSION = 17455 * 1000;
-    public static final String GMS_PACKAGE_NAME = "com.google.android.gms";
-    public static final String GSF_PACKAGE_NAME = "com.google.android.gsf";
-    public static final String GMS_PACKAGE_SIGNATURE_SHA1 = "38918a453d07199354f8b19af05ec6562ced5788";
-}
+import com.google.android.gms.dynamic.IObjectWrapper
+import com.google.android.gms.dynamic.ObjectWrapper
+
+inline fun <reified T> IObjectWrapper?.unwrap(): T? = ObjectWrapper.unwrapTyped(this, T::class.java)
